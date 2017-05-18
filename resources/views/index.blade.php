@@ -3,7 +3,7 @@
 @section('content')
     <div class="text-right"><b>Всего сообщений:</b><i class="badge">0</i></div></br>
     <div class="text-center">
-        <a href="/add" class="btn btn-default">Добавить</a>
+        <a href="/create" class="btn btn-default">Добавить</a>
     </div></br>
 @foreach($messages as $message)
     <div class="messages">

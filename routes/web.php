@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'MessagesController@index');
-        
-Route::get('/messages/{id}/edit', 'MessagesController@index');
-
-Route::get('/add', 'MessagesController@add');
+Route::get('/messages/{id}/edit', 'MessagesController@edit');
+Route::get('/create', 'MessagesController@create');
+Route::post('/messages', 'MessagesController@store');
+Route::patch('/messages/{id}', 'MessagesController@update');

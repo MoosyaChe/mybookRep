@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Message;
 
 class MessagesController extends Controller
 {
@@ -18,8 +19,26 @@ class MessagesController extends Controller
         return view('messages.edit', compact('messagesItem'));
     }
     
-    public function add() {
-        return view('messages.add');
+    public function create() {
+        return view('messages.create');
+    }
+    
+    public function store() {
+        $this->validate(request(),[
+            'username' => 'required|min:2',
+            'message' => 'required'
+        ]);
+        Message::create(request(['username', 'message']));
+        return redirect('/');
+    }
+    
+    public function update() {
+        $this->validate(request(),[
+            'username' => 'required|min:2',
+            'message' => 'required'
+        ]);
+        Message::update(request(['username', 'message']));
+        return redirect('/');
     }
 
 
