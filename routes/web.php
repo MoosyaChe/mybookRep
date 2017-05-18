@@ -11,10 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    $messages = DB::table('messages')->get();
-    return view('index', compact('messages'));
-});
-Route::get('/message/{id}/edit', function () {
-    return view('edit');
-});
+Route::get('/', 'MessagesController@index');
+        
+Route::get('/messages/{id}/edit', 'MessagesController@index');
+
+Route::get('/add', 'MessagesController@add');
