@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    $messages = DB::table('messages')->get();
+    return view('index', compact('messages'));
+});
+Route::get('/message/{id}/edit', function () {
+    return view('edit');
 });
