@@ -32,13 +32,20 @@ class MessagesController extends Controller
         return redirect('/');
     }
     
-    public function update() {
+    public function update(Message $message) {
         $this->validate(request(),[
             'username' => 'required|min:2',
             'message' => 'required'
         ]);
-        Message::update(request(['username', 'message']));
+        $message->update(request(['username', 'message']));
         return redirect('/');
+    }
+    
+    public function destroy($id) {
+        $message = Message::find($id);
+        $message->delete();
+        return redirect('/');
+        
     }
 
 

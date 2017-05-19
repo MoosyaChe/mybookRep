@@ -2,13 +2,13 @@
 
 @section('content')
 
-<form action="/messages/{{$messagesItem->id}}" method="POST" id="id-form_messages">
+<form action="/messages/{{$messagesItem->id}}" method="post" id="id-form_messages">
         {{csrf_field()}}
         {!! method_field('patch') !!}
         
         <div class="form-group">
                 <label for="name">Имя: *</label>
-                <input type="text" class="form-control" value="{{$messagesItem->username}}" name="name" id="name">
+                <input type="text" class="form-control" value="{{$messagesItem->username}}" name="username" id="name">
         </div>
         <div class="form-group">
                 <label for="message">Сообщение: *</label>
@@ -18,5 +18,6 @@
                 <label for="name"></label>
                 <input type="submit" class="btn btn-primary" value="Обновить">
         </div>
+        @include('layouts.error')  
     </form>
 @endsection

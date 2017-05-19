@@ -12,7 +12,8 @@
 */
 
 Route::get('/', 'MessagesController@index');
+Route::patch('/messages/{message}', 'MessagesController@update');
 Route::get('/messages/{id}/edit', 'MessagesController@edit');
 Route::get('/create', 'MessagesController@create');
 Route::post('/messages', 'MessagesController@store');
-Route::patch('/messages/{id}', 'MessagesController@update');
+Route::delete('/messages/{id}', 'MessagesController@destroy');

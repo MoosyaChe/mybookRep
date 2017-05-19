@@ -18,12 +18,18 @@
                 {{$message->message}}
                 </hr>
                 <div class="pull-right">
-                    <a href="/messages/{{$message->id}}/edit" class="btn btn-info">
-                            <i class="glyphicon glyphicon-pencil"></i>
-                    </a>
-                    <button class="btn btn-danger">
+                     <form action="/messages/{{$message->id}}" method="post">
+                        <a href="/messages/{{$message->id}}/edit" class="btn btn-info">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                        </a>
+
+                        {{csrf_field()}}
+                        {!! method_field('delete') !!}
+                        <button class="btn btn-danger">
                             <i class="glyphicon glyphicon-trash"></i>
-                    </button>
+                        </button>
+                    </form>
+                    
                 </div>
             </div>
         </div>
